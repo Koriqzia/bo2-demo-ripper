@@ -8,7 +8,7 @@ app jumps the replay to your start point, records a preview video of just that
 part, and saves the demo's files next to the video. The result is a clip folder
 you can load in Redacted later for the proper cinematic render.
 
-**Version 1.1.0**
+**Version 1.1.1**
 
 - [Download](#download)
 - [Requirements](#requirements)
@@ -180,7 +180,7 @@ afterwards.
 **Takes.** A recording goes to `<library>\_takes\` first. It moves into the clip
 folder when it's saved. If the clip has no name, or a folder with that name
 already exists, the take waits and the Record button reads **Save clip**.
-**Discard take** deletes a waiting take. **Save without recording** saves the
+**Discard take** deletes a waiting take. **Rip Demo** saves the
 demo files with no preview.
 
 ## Troubleshooting
