@@ -8,7 +8,7 @@ app jumps the replay to your start point, records a preview video of just that
 part, and saves the demo's files next to the video. The result is a clip folder
 you can load in Redacted later for the proper cinematic render.
 
-**Version 1.1.1**
+**Version 1.1.2**
 
 - [Download](#download)
 - [Requirements](#requirements)
@@ -20,6 +20,7 @@ you can load in Redacted later for the proper cinematic render.
 - [What gets saved](#what-gets-saved)
 - [Troubleshooting](#troubleshooting)
 - [Safety](#safety)
+- [Licences](#licences)
 
 ---
 
@@ -218,6 +219,16 @@ the status line says so when recording starts.
 **"Numpad / already taken by another program"** — another app has registered
 that key. Close it, or use the buttons.
 
+## Licences
+
+BO2 Demo Ripper is one file with its libraries compiled in, so their licence
+notices travel with it. **THIRD-PARTY-NOTICES.txt** lists them in full - SharpDX,
+Costura and Fody, all MIT - and is published beside the exe on every release. The
+same text is inside the app, under *Offsets and maintenance* -> **Third-party
+notices**, with a *Save a copy* button.
+
+The app ships no part of OBS Studio or Black Ops II, and is not affiliated with
+Activision, Treyarch or Valve.
 ## Safety
 
 - **The app never changes BO2's memory.** It only *reads* it: the replay, the
