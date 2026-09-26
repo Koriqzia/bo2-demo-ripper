@@ -221,8 +221,11 @@ that key. Close it, or use the buttons.
 
 ## Licences
 
-BO2 Demo Ripper is one file with its libraries compiled in, so their licence
-notices travel with it. **THIRD-PARTY-NOTICES.txt** lists them in full - SharpDX,
+BO2 Demo Ripper is **MIT licensed** - see [LICENSE](LICENSE). Use it, change it,
+ship it; keep the copyright notice with it.
+
+It is one file with its libraries compiled in, so their licence notices travel
+with it. **THIRD-PARTY-NOTICES.txt** lists them in full - SharpDX,
 Costura and Fody, all MIT - and is published beside the exe on every release. The
 same text is inside the app, under *Offsets and maintenance* -> **Third-party
 notices**, with a *Save a copy* button.
