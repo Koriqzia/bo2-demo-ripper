@@ -8,13 +8,22 @@ app jumps the replay to your start point, records a preview video of just that
 part, and saves the demo's files next to the video. The result is a clip folder
 you can load in Redacted later for the proper cinematic render.
 
-**Version 1.1.2**
+**Version 1.2.0**
+
+**New in 1.2.0:** the clip name starts with the **player's in-game name**, filled in from the
+player you are watching; **several clips from one replay** recorded in one go; the start and end
+come straight from the **sliders** (no tick buttons needed); one big **FISH** button records and
+saves everything; a **replay timeline** showing where you are and how much of the replay
+can be jumped to; **keyboard shortcuts** you can change; settings tucked under **Advanced**; a
+darker walleye look.
 
 - [Download](#download)
 - [Requirements](#requirements)
 - [Quick start](#quick-start)
 - [Hotkeys](#hotkeys)
-- [Start and end ticks](#start-and-end-ticks)
+- [Start and end](#start-and-end)
+- [Replay timeline](#replay-timeline)
+- [Several clips from one replay](#several-clips-from-one-replay)
 - [Jumping to the start tick](#jumping-to-the-start-tick)
 - [Recording](#recording)
 - [What gets saved](#what-gets-saved)
@@ -47,17 +56,18 @@ the exe.
 
 1. Start BO2, open **Theater**, and load a replay.
 2. Start **BO2 Demo Ripper**. The top line should read *Found Retail BO2
-   successfully*. The first time, pick a **library folder**. Every clip gets its
+   successfully*. The first time, choose the folder **clips are saved in**. Every clip gets its
    own folder inside it.
-3. Fill in the **clip name**: kills, map and details (for example `3k`,
-   `express`, `toma dsrknife ballista`). The map fills itself in from the replay.
-4. Back in the game, play the replay:
-   - press **numpad `*`** where the clip should start,
-   - press **numpad `-`** where it should end.
-5. Press **numpad `/`**. The app jumps the replay back to just before your start
-   point and plays. Recording starts at the start tick and stops at the end tick.
-6. The clip saves itself, and you hear a high beep. Press numpad `/` again for
-   the next one.
+3. Fill in the **clip name**: kills and details (for example `3k`,
+   `dsr knife ballista`). The **player** and the **map** fill themselves in from
+   the replay: the player is whoever you are watching (untick **auto** to type
+   or pick a name yourself).
+4. Set where the clip starts and ends: drag the two **sliders**, or, while the
+   replay plays, press **numpad `*`** at the start and **numpad `-`** at the end.
+5. Press **FISH** (or numpad `/`). It pulses green when everything is in place.
+   The app jumps the replay back to just before your start point and plays.
+   Recording starts at the start and stops at the end.
+6. The clip saves itself, and you hear a high beep.
 
 Everything in steps 4–6 works while BO2 has focus. Beeps tell you what happened:
 high for a start tick, lower for an end tick, a double beep when armed, a high
@@ -72,25 +82,52 @@ are used, so the `/` and `-` on the main keyboard still type normally.
 | Key | What it does |
 |---|---|
 | **Numpad `/`** | Record the clip. If recording is armed or the replay is jumping, cancels it. If recording, stops it. If a take is waiting for a name, saves it. |
-| **Numpad `*`** | Set the **start tick** at the current point in the replay. |
-| **Numpad `-`** | Set the **end tick** at the current point in the replay. |
-| **Numpad `+`** | **Go to start tick**: jump the replay there and pause on it. Press again to stop. |
+| **Numpad `*`** | **Set Start time to Current Demo Time**: the exact replay tick, and moves the Start slider there. |
+| **Numpad `-`** | **Set End time to Current Demo Time**: the exact replay tick, and moves the End slider there. |
+| **Numpad `+`** | **Go to the start time**: jump the replay there and pause on it. Press again to stop. |
 
-Each hotkey has a button in the app that does the same thing.
+Change any of them under *Advanced* → *Offsets and maintenance* → **Keyboard shortcuts**: click a
+box and press the key you want (**Numpad defaults** puts them back). With more than
+one clip queued, numpad `*` and `-` set the **newest** clip's start and end.
 
-## Start and end ticks
+## Start and end
 
-A *tick* is BO2's replay clock in milliseconds. The app shows the live time and
-tick under the time sliders, e.g. `replay 2:37 / 4:39 tick 159000 / 280900`.
+The **sliders** are the clip's start and end: their times are what the app jumps
+to and records. A *tick* is BO2's replay clock in milliseconds; the app shows the
+live time and tick under the sliders, e.g. `replay 2:37 / 4:39 tick 159000 / 280900`.
 
-- Setting a tick also moves the matching **Start** or **End** time, which is used
-  in the folder name.
+- Numpad `*` and `-` set an **exact** tick (to the millisecond) and move the slider
+  there. Under the sliders it says `(tick 159000)` for an exact tick and
+  `(from the slider)` otherwise.
 - An end tick before the start tick (or the other way round) clears the other
   one, and the status line says so.
-- Typing a different time by hand clears that tick, so the clip is never saved
-  with a tick for a moment you moved away from.
-- Ticks belong to the replay they were set on. Loading a different replay
+- Moving a slider or typing a time by hand goes back to the slider's time.
+- Exact ticks belong to the replay they were set on. Loading a different replay
   clears them.
+
+## Replay timeline
+
+Above the sliders, a bar shows the whole replay, just to look at:
+
+- the **playhead** and the current time above it;
+- a gold strip for each clip, from its start to its end;
+- small notches where BO2 has laid its **jump points** (one every 10 seconds, as far as the
+  replay has been played);
+- a **hatched** part where there are no jump points yet. Hover it for a reminder: play through
+  that part once and you can jump to it. The app only knows what it has seen play, so a part
+  you watched before opening it shows as hatched until it plays again.
+
+The progress bar under FISH fills while clips record, across all of them when several are
+queued.
+
+## Several clips from one replay
+
+When clip 1 has a name and a start and end, **Queue for Recording** (under the
+last clip) adds clip 2, with its own kills, details and sliders; then clip 3, up
+to 5. **FISH** then records them all in one go: it jumps to clip 1, records it,
+jumps to clip 2, records it, and so on, and saves everything in **one folder**
+with the replay. Each video is named after its own clip. **✕** removes a queued
+clip.
 - **Auto End Recording at End Tick** (on by default) stops recording when the
   replay plays past the end tick.
 
@@ -100,8 +137,8 @@ BO2's theater lets you jump through a replay in 10-second steps: **Left** jumps
 back, **Right** jumps forward, and **Space** plays or pauses. BO2 Demo Ripper
 presses these keys for you, even while another window has focus.
 
-- **Jump to Start Tick before recording** (on by default): when you press
-  Record with a start tick set, the app jumps to the last jump point before the
+- **Jump to Start Tick before recording** (on by default, under *Advanced*): when you press
+  FISH with a start set, the app jumps to the last jump point before the
   start tick, from ahead of it or behind it. It then arms recording and presses
   play. Recording starts the moment the replay reaches the start tick.
 - **Go to** (numpad `+`) jumps, plays, and pauses right on the start tick.
@@ -111,11 +148,11 @@ presses these keys for you, even while another window has focus.
   just after a longer wait, and the status line says why.
 - The keys have to be BO2's defaults (Left, Right, Space).
 - If jumps do nothing on your PC, tick **Wake BO2 before each theater key**
-  under *Offsets and maintenance*.
+  under *Advanced* → *Offsets and maintenance*.
 
 ## Recording
 
-Open the **Recording** section to choose the recorder and its settings. Settings
+Open *Advanced* → **Recording** to choose the recorder and its settings. Settings
 are remembered.
 
 ### Built-in recorder (default)
@@ -134,7 +171,7 @@ of the recording.
 Always: resolution = BO2's own size, a keyframe every 0.5 s (quick scrubbing in
 editors), and AAC audio at 48 kHz, 192 kbps.
 
-The recorder gets ready when you press Record, so recording begins within
+The recorder gets ready when you press FISH, so recording begins within
 milliseconds of the start tick. If BO2 closes while recording, the file is still
 finished properly.
 
@@ -149,22 +186,24 @@ for your Windows account.
 
 ## What gets saved
 
-Each clip is a folder in your library named
-`<kills> <map> <details> - <start> - <end>`, for example
-`3k express toma dsrknife ballista - 243 - 304` for 2:43 to 3:04:
+Each clip is a folder, in the folder you chose for clips, named
+`<player> - <map> - <kills> <details> <start> - <end>`, for example
+`Harry Shire - express - 3k dsr knife ballista 243 - 304` for 2:43 to 3:04.
+More clips from the same replay add ` - <kills> <details> <start> - <end>` each:
+`Harry Shire - raid - 2k dsr noice ns 700 - 715 - 3k scar 810 - 825`.
 
 ```
-3k express toma dsrknife ballista - 243 - 304\
+Harry Shire - express - 3k dsr knife ballista 243 - 304\
     tdm_mp_express_….demo              the replay
     tdm_mp_express_….demo.summary
     tdm_mp_express_….demo.tags
     tdm_mp_express_….demo.thumbnail
-    3k express toma dsrknife ballista - 243 - 304.mp4    the preview
+    Harry Shire - express - 3k dsr knife ballista 243 - 304.mp4    the preview
     clip.txt
 ```
 
 The four demo files are what Redacted needs to load the replay. The demo is read
-from BO2's memory when you press Record, so it doesn't matter what BO2 does
+from BO2's memory when you press FISH, so it doesn't matter what BO2 does
 afterwards.
 
 `clip.txt` lists the clip's details, one `key=value` per line:
@@ -172,22 +211,24 @@ afterwards.
 | Key | Meaning |
 |---|---|
 | `clip` | folder name |
+| `player` | the player's in-game name |
 | `demo`, `map`, `mode`, `size` | the replay file, map id (e.g. `mp_express`), game mode, demo size in bytes |
 | `ripped`, `source` | when it was saved, and `retail t6mp` |
 | `start`, `end` | clip times as shown in the game (`2:43`) |
 | `start_tick`, `end_tick`, `demo_end_tick` | exact replay ticks, when set |
 | `preview` | the preview video's file name, when recorded |
+| `clips`, `part2`, `part2_start`, `part2_end`, `part2_start_tick`, `part2_end_tick`, `part2_preview` … | with several clips: how many, and each extra clip's name, times, ticks and video |
 
-**Takes.** A recording goes to `<library>\_takes\` first. It moves into the clip
+**Takes.** A recording goes to `<your clips folder>\_takes\` first. It moves into the clip
 folder when it's saved. If the clip has no name, or a folder with that name
-already exists, the take waits and the Record button reads **Save clip**.
-**Discard take** deletes a waiting take. **Rip Demo** saves the
-demo files with no preview.
+already exists, the take waits and the FISH button reads **Save clip**.
+**Discard take** deletes a waiting take. **Rip demo only** (under *Advanced* →
+*Offsets and maintenance*) saves the demo files with no preview.
 
 ## Troubleshooting
 
 **"Not connected"** — BO2 isn't running, or it's a different version. Open
-*Offsets and maintenance* → **Diagnose** to see what the app finds. After a game
+*Advanced* → *Offsets and maintenance* → **Diagnose** to see what the app finds. After a game
 update, **Relocate from known demo…** recovers most offsets using a demo you
 ripped before. The Tick and DemoEndTick offsets have to be found again by hand.
 
@@ -213,25 +254,13 @@ the status line says so when recording starts.
 **Jumping to the start tick doesn't work**
 - The theater keys have to be BO2's defaults (Left, Right, Space).
 - On a replay's first watch, jump points only exist as far as you've watched.
-- Try **Wake BO2 before each theater key** under *Offsets and maintenance*.
+- Try **Wake BO2 before each theater key** under *Advanced* → *Offsets and maintenance*.
 - If it still fails, the app arms anyway: jump back yourself and press play.
 
 **"Numpad / already taken by another program"** — another app has registered
-that key. Close it, or use the buttons.
+that key. Close it, or pick other keys under *Advanced* → *Offsets and maintenance* →
+**Keyboard shortcuts**.
 
-## Licences
-
-BO2 Demo Ripper is **MIT licensed** - see [LICENSE](LICENSE). Use it, change it,
-ship it; keep the copyright notice with it.
-
-It is one file with its libraries compiled in, so their licence notices travel
-with it. **THIRD-PARTY-NOTICES.txt** lists them in full - SharpDX,
-Costura and Fody, all MIT - and is published beside the exe on every release. The
-same text is inside the app, under *Offsets and maintenance* -> **Third-party
-notices**, with a *Save a copy* button.
-
-The app ships no part of OBS Studio or Black Ops II, and is not affiliated with
-Activision, Treyarch or Valve.
 ## Safety
 
 - **The app never changes BO2's memory.** It only *reads* it: the replay, the
@@ -243,3 +272,17 @@ Activision, Treyarch or Valve.
 - Use it in the theater, not in online matches.
 
 This project isn't affiliated with Activision, Treyarch or Valve.
+
+## Licences
+
+BO2 Demo Ripper is **MIT licensed** - see [LICENSE](LICENSE). Use it, change it,
+ship it; keep the copyright notice with it.
+
+It is one file with its libraries compiled in, so their licence notices travel
+with it. **THIRD-PARTY-NOTICES.txt** lists them in full - SharpDX,
+Costura and Fody, all MIT - and the same text is inside the app, under *Offsets
+and maintenance* -> **Third-party notices**, with a *Save a copy* button. The
+file is also published beside the exe on every release.
+
+The app ships no part of OBS Studio or Black Ops II, and is not affiliated with
+Activision, Treyarch or Valve.

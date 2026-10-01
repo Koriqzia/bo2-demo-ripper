@@ -5,7 +5,7 @@ Bo2DemoRipper2026.exe is a single file: the libraries below are compiled into
 it, so their licence notices travel with it. This file is also viewable inside
 the app, under "Offsets and maintenance" -> "Third-party notices".
 
-Last updated for version 1.1.2.
+Last updated for version 1.2.0 (no new libraries since 1.1.2).
 
 
 -------------------------------------------------------------------------------
